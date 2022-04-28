@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Delete.Models.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a class = "btn btn-outline-primary" asp-action="Create">
+    Inserir Cliente
+</a>
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>            
+            <th class="text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr classrc="align-middle">
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>           
+
+                <td class="text-center">                 
+                    
+                    <a class="btn btn-outline-info btn-sm" asp-action="Details" asp-route-id="@item.id">Detalhes</a>
+                    
+                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.id">Apagar</a>
+                    
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

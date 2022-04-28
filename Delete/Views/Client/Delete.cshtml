@@ -1,0 +1,25 @@
+﻿@model Delete.Models.Client
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar</h1>
+<h3>Voce tem certeza que quer apagar isso?</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" readonly />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>        
+       
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="id" />
+            <input type="submit" value="Apagar" class="btn btn-danger btn-sm" /> |
+            <a class="btn btn-secondary text-white btn-sm" asp-action="Index">Voltar</a>
+        </form>
+    </div>
+</div>
